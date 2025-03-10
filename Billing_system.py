@@ -394,13 +394,13 @@ class Bill_App:
     
     def find_bill(self):
         present = "no"
-        for i in os.listdir("bills/"):
+        for i in os.listdir("bills/"):   #create a empty folder named of "biils"
             if i.split('.')[0] == self.search_bill.get():
                 f1 = open(f"bills/{i}", "r")
                 self.txtarea.delete("1.0", END)
                 for d in f1:
                     self.txtarea.insert(END, d)
-                    f1.close()
+                f1.close()
                 present = "yes"
         if present == "no":
             messagebox.showerror("Error", "Invalid Bill No")
